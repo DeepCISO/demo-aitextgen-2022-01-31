@@ -1,0 +1,6 @@
+*.db
+model.txt
+aitextgen.tokenizer.json
+trained_model/**
+**/__pycache__/**
+**.pyc
