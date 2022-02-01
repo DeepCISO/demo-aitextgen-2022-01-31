@@ -25,14 +25,9 @@ Intakes a sqlite database with Tweets in it, builds a per-user engagement minimu
 * Inputs: `model.txt`
 * Outputs: `trained_model/*` and `aitextgen.tokenizer.json`
 
-Finetunes GPT Neo 125M by ElutherAI with pretty lean settings. Should be viable to run on headless systems with 3GB+ of vRAM, or non-headless (headfull?) systems with 4GB+ vRAM. Also should run on CPU, albeit slowly. Messing with these to learn more about accuracy, hence the disposable repository being used here as well as the small model, old dataset, etc.
+Finetunes GPT Neo 125M by ElutherAI with pretty lean settings. Should be viable to run on headless systems with 3GB+ of vRAM, or non-headless (headfull?) systems with 4GB+ vRAM. Also should run on CPU, albeit slowly. Messing with these to learn more about accuracy, hence the disposable repository being used here.
 
-#### 3. run_model.py
-
-* Inputs: `trained_model/*` and `aitextgen.tokenizer.json`
-* Outputs: to console
-
-Runs finetuned model - quickly producing memetastic results. In the dataset used (kinda meh, all lowercased, 27MB, only tweets, as above ...) here is the loss at arbitrary points during training:
+In the private dataset used (kinda meh, all lowercased, 27MB, only tweets, as above ...) here is the loss at arbitrary points during training for my future self and any observers:
 
 * Start: usually in the 7-8 range
 * Step 2500: ~6.3
@@ -43,4 +38,13 @@ Runs finetuned model - quickly producing memetastic results. In the dataset used
 
 While the improvement from 300k to 500k in loss was quite minimal, whether it's the fallacy of man or something else, I do feel like the results tended to be significantly better as it kept nudging down a hundredth or two.
 
-Biggest improvement right now is almost certainly the data model itself, grouping similar topics, understanding how context windows really work, and tuning the learning rate.
+#### 3. run_model.py
+
+* Inputs: `trained_model/*` and `aitextgen.tokenizer.json`
+* Outputs: to console
+
+Runs finetuned model - quickly producing memetastic results. Can also be prompted if you uncomment that line because I am lazy.
+
+## Results
+
+Biggest improvement right now is almost certainly the data itself (needs more & longer data than just tweets), grouping similar topics, understanding how context windows really work, and tuning the learning rate. I don't see a reason to move to a bigger model at this time unless that is actually a big barrier to cogence beyond a sentence (which often makes a world of difference in how funny the results are), so... I'll find that out as well.
