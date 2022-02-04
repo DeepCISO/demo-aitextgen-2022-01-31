@@ -30,11 +30,12 @@ Finetunes GPT Neo 125M by ElutherAI with pretty lean settings. Should be viable 
 In the private dataset used (kinda meh, all lowercased, 27MB, only tweets, as above ...) here is the loss at arbitrary points during training for my future self and any observers:
 
 * Start: usually in the 7-8 range
-* Step 2500: ~6.3
-* Step 5000: ~6
-* Step 45000: ~5
-* Step 100000: ~4.8
-* Step 500000: ~4.6
+* Step 2,500: ~6.3
+* Step 5,000: ~6
+* Step 45,000: ~5
+* Step 100,000: ~4.8
+* Step 500,000: ~4.6
+* Step 1,000,000: ~4.56
 
 While the improvement from 300k to 500k in loss was quite minimal, whether it's the fallacy of man or something else, I do feel like the results tended to be significantly better as it kept nudging down a hundredth or two.
 
